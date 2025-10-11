@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
         element: <Serch />
     },
     {
-        path: "/",
+        path: "/weather/:city",
         element: <CityDetails />
     }
 ]

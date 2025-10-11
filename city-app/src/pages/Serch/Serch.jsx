@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import CityCard from "../../components/CityCard/CityCard"
+import "./Serch.css"
 
 const Serch = () => {
     const [cityName, setCityName] = useState("")

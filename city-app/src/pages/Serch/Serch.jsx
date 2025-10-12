@@ -37,7 +37,7 @@ const Serch = () => {
             </div>
             <h1>Погода</h1>
             <div className="weather-grid">
-                {weather && <CityCard key={weather.id} {...weather} />}
+                {weather && <CityCard key={weather.city} {...weather} />}
             </div>
         </div>
     )

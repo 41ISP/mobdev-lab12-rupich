@@ -5,43 +5,34 @@ const CityCard = (weather) => {
     const handleClick = () => {
         navigate(`/weather/${weather.name}`)
     }
-    const getWeatherIcon = () => {
-        if (weather.weather && weather.weather[0]) {
-            return `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
-        }
-    }
     return (
         <div onClick={handleClick} className="city-card">
-                <div className="city-info"></div>
-                    <div className="city-header">
-                        <h2 className="city-name">{weather.name}, {weather.sys.country}</h2>
-                        <img src={getWeatherIcon}
-                            alt={weather.weather?.description || "-"}
-                            className="city-icon" />
+            <div className="city-header">
+                <h2 className="city-name">{weather.name}, {weather.sys.country}</h2>
+            </div>
+            <div className="city-main">
+                <div className="city-description">{weather.weather[0].description}</div>
+                <div className="temperature">Температура: {weather.main.temp} С°</div>
+                <div className="weather-details">
+                    <div className="detail-item">
+                        <span className="detail-label">Ощущается как:</span>
+                        <span className="detail-value">{weather.main.feels_like} С°</span>
                     </div>
-                    <div className="city-main">
-                        <div className="city-description">{weather.weather[0].description}</div>
-                        <div className="temperature">Температура: {weather.main.temp} С°</div>
-                        <div className="weather-details">
-                            <div className="detail-item">
-                                <span className="detail-label">Ощущается как:</span>
-                                <span className="detail-value">{weather.main.feels_like} С°</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Давление:</span>
-                                <span className="detail-value">{weather.main.pressure} Па</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Влажность:</span>
-                                <span className="detail-value">{weather.main.humidity} г/м³</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Ветер:</span>
-                                <span className="detail-value">{weather.wind.speed} m/s</span>
-                            </div>
-                        </div>
+                    <div className="detail-item">
+                        <span className="detail-label">Давление:</span>
+                        <span className="detail-value">{weather.main.pressure} Па</span>
+                    </div>
+                    <div className="detail-item">
+                        <span className="detail-label">Влажность:</span>
+                        <span className="detail-value">{weather.main.humidity} г/м³</span>
+                    </div>
+                    <div className="detail-item">
+                        <span className="detail-label">Ветер:</span>
+                        <span className="detail-value">{weather.wind.speed} m/s</span>
                     </div>
                 </div>
+            </div>
+        </div>
     )
 }
 export default CityCard
